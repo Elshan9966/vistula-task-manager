@@ -24,7 +24,6 @@ async function apiRequest(endpoint, options = {}) {
             ...options,
             headers: {
                 "apikey": config.supabasePublishableKey,
-                "Authorization": `Bearer ${config.supabasePublishableKey}`,
                 "Content-Type": "application/json",
                 ...options.headers
             }
