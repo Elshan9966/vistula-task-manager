@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Contribution</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Team Contribution</h1>
+  <button id="load-contributor">Show Contributor</button>
+  <p>Contributor Student ID: <span id="contributor-student-id"></span></p>
+  <p><a href="index.html">Back to Task Manager</a></p>
+
+  <script>
+    document.getElementById('load-contributor').addEventListener('click', async () => {
+      try {
+        const response = await fetch('contribution.json');
+        const data = await response.json();
+        document.getElementById('contributor-student-id').textContent = data.contributorStudentId;
+      } catch (error) {
+        document.getElementById('contributor-student-id').textContent = 'Error loading contributor ID';
+      }
+    });
+  </script>
+</body>
+</html>
